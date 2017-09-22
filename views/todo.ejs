@@ -4,7 +4,7 @@
     <head>
         <title>My todolist</title>
         <style>
-            a {text-decoration: none; color: black;}
+            a {text-decoration: none; color: red;}
         </style>
     </head>
 
@@ -12,7 +12,16 @@
         <h1>My todolist</h1>
         <ul>
         <% todolist.forEach(function(todo, index) { %>
-            <li><a href="/todo/delete/<%= index %>">✘</a> <%- todo %></li>
+            <li>
+                <a href="/todo/delete/<%= index %>">✘</a>
+                <%- todo %>
+                <form action="/todo/update/<%= index %>" method="post">
+                    <p>
+                        <input type="text" name="updatedtodo" />
+                        <input type="submit" value="Update">
+                    </p>
+                </form>
+            </li>
         <% }); %>
         </ul>
 

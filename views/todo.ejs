@@ -14,7 +14,7 @@
         <% todolist.forEach(function(todo, index) { %>
             <li>
                 <a href="/todo/delete/<%= index %>">✘</a>
-                <%- todo %>
+                <%- clean(todo) %>
                 <form action="/todo/update/<%= index %>" method="post">
                     <p>
                         <input type="text" name="updatedtodo" />

@@ -1,4 +1,5 @@
 const express = require('express');
+const sanitizer = require('sanitizer');
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
@@ -6,9 +7,18 @@ const app = express();
 
 let todolist = [];
 
+/**
+ * Converts the input string into a save HTML string
+ * @param input The input string
+ * @returns {*} Escaped string
+ */
+function clean(input) {
+    return sanitizer.escape(input);
+}
+
 /* The to do list and the form are displayed */
 app.get('/todo', (req, res) => {
-    res.render('todo.ejs', { todolist, clickHandler:"func1();" });
+    res.render('todo.ejs', { todolist, clean, clickHandler:"func1();" });
 })
 
 /* Adding an item to the to do list */

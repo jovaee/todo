@@ -56,6 +56,8 @@ app.get('/todo', (req, res) => {
     res.redirect('/todo');
 })
 
-.listen(8080);
+.listen(8080, () => {
+    console.log('====| Server is running |====');
+});
 
-console.log('====| Server is running |====');
+module.exports = app;

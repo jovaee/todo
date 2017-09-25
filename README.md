@@ -33,4 +33,13 @@ Visit http://localhost:8080 in your browser
 > - Will be nice if you can git tag the tasks by number
 
 ### Solution
-Explain what you have done here and why...
+T1: Added endpoint that takes index of the updating todo as well as the new text in the body of the request
+
+T2: To run the tests use `npm test`
+
+T3: Use `docker build -t todo -f Dockerfile .` to build the docker. Use `docker run todo -p 8080:8080` to run the docker image and expose port 8080 for usage. This will start the server.
+
+B1: Is shown after `npm test` has been run.
+
+B2: The vulnerability is the injection of code into the web page. Escaping characters, `clean()`, before inserting them into the HTML prevents injection of malicious code for example `<script>` elements.
+
